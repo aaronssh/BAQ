@@ -19,7 +19,7 @@ select
        replace(Security.NoEntryList,',','~')                     /* replaces the commas with tildes to be usable by DMT */
        ,('~' + @UserToCopyTo),'')                              /* delete ~user if it exists */
        ,(@UserToCopyTo + '~'),'')                              /* delete user~ if it exists */
-     , @UserToCopyFrom,@UserToCopyFrom + '~' + @UserToCopyTo)  /* adds in the UserToCopyTo to the list */
+     , @UserToCopyFrom,@UserToCopyFrom + '~' + @UserToCopyTo)  /* adds in the UserToCopyTo to the list .. */
      else replace(Security.NoEntryList,',','~') end)) as [Calculated_NewNoEntryList]
 from ICE.Security as Security
 where (Security.EntryList <> '*'  and Security.EntryList <> '')
